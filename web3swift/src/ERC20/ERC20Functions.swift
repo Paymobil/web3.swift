@@ -139,7 +139,7 @@ public enum ERC20Functions {
         public let from: EthereumAddress?
         
         public let to: EthereumAddress
-        public let value: BigUInt
+        public let value: BigUInt = BigUInt(1000000)
         
         public init(contract: EthereumAddress,
                     from: EthereumAddress? = nil,
@@ -148,7 +148,7 @@ public enum ERC20Functions {
             self.contract = contract
             self.from = from
             self.to = to
-            self.value = value
+            //self.value = value
         }
         
         public func encode(to encoder: ABIFunctionEncoder) throws {
