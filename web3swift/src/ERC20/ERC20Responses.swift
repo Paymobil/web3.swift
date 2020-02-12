@@ -45,4 +45,13 @@ enum ERC20Responses {
             self.value = try values[0].decoded()
         }
     }
+    
+    public struct transferResponse: ABIResponse {
+        public static var types: [ABIType.Type] = [ Bool.self ]
+        public let value: Bool
+        
+        public init?(values: [ABIType]) throws {
+            self.value = try values[0].decoded()
+        }
+    }
 }
