@@ -73,8 +73,8 @@ public class ERC20 {
         }
     }
     
-    public func transfer(tokenContract: EthereumAddress, from: EthereumAddress, to: EthereumAddress, value: BigUInt, completion: @escaping((Error?, Bool?) -> Void)) {
-        let function = ERC20Functions.transfer(contract: tokenContract, from: from, to: to, value: value)
+    public func transfer(tokenContract: EthereumAddress, from: EthereumAddress, to: EthereumAddress, value: BigUInt, gasPrice: BigUInt, gasLimit: BigUInt, completion: @escaping((Error?, Bool?) -> Void)) {
+        let function = ERC20Functions.transfer(contract: tokenContract, gasPrice: gasPrice, gasLimit: gasLimit, from: from, to: to, value: value)
         function.call(withClient: self.client, responseType: ERC20Responses.transferResponse.self) { (error, transferResponse) in
             return completion(error, transferResponse?.value)
         }
