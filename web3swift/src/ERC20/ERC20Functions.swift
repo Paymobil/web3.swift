@@ -133,8 +133,8 @@ public enum ERC20Functions {
     
     public struct transfer: ABIFunction {
         public static let name = "transfer"
-        public let gasPrice: BigUInt? = BigUInt(11*1000000000)
-        public let gasLimit: BigUInt? = BigUInt(100000)
+        public let gasPrice: BigUInt? = nil
+        public let gasLimit: BigUInt? = nil
         public var contract: EthereumAddress
         public let from: EthereumAddress?
         
@@ -142,6 +142,8 @@ public enum ERC20Functions {
         public let value: BigUInt
         
         public init(contract: EthereumAddress,
+                    gasPrice: BigUInt,
+                    gasLimit: BigUInt,
                     from: EthereumAddress? = nil,
                     to: EthereumAddress,
                     value: BigUInt) {
